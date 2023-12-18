@@ -1,18 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const str = React.createElement("div", { id: "parent" }, [
-    React.createElement("div", { id: "child1" }, [
-        React.createElement("h1", {}, "Hello World"),
-        React.createElement("h2", {}, "From Suvid"),
-    ]),
-    React.createElement(
-        "div",
-        { id: "child2" },
-        React.createElement("h1", {}, "Good Bye")
-    ),
-]);
+const hw = <h1>Hello World Using JSX!</h1>
+
+const Name = () => (
+    <h1>
+        By Suvid
+    </h1>
+);
+
+const Hw = () => (
+
+    <div>
+        <h1>
+            Hello World using React Components!
+        </h1>
+
+        <Name />
+    </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(str);
+root.render(<Hw />);
