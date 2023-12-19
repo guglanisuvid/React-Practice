@@ -9,6 +9,8 @@ body {
     font-size: clamp(0.8rem, 2vw, 1.04rem);
 }
 
+/* Header Styling */
+
 .header {
     display: flex;
     background: #ECF8E5;
@@ -28,6 +30,20 @@ body {
     height: 100%;
 }
 
+.header > .login-logout {
+    text-align: center;
+}
+
+.header > .login-logout > .login-logout-btn {
+    background: #547f3a;
+    color: #ECF8E5;
+    padding: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 10px;
+}
+
 .header > .nav-items {
     width: 50%;
 }
@@ -37,6 +53,8 @@ body {
     list-style-type: none;
     justify-content: space-around;
 }
+
+/* Body Styling */
 
 .body {
     padding: 0 4rem;
@@ -65,6 +83,8 @@ body {
     width: 100%;
 }
 
+/* Restaurant Card Styling */
+
 .res-card {
     display: flex;
     background:#ECF8E5;
@@ -90,4 +110,15 @@ body {
     flex-direction: column;
     justify-content: space-around;
     flex: 1;
+}
+
+/* Shimmer Styling */
+
+.shimmer-btn-container > .shimmer-btn {
+    background: #f0f0f0;
+}
+
+.shimmer-cards > .shimmer-card {
+    background: #f0f0f0;
+    border: 2px solid #0f0f0f;
 }
