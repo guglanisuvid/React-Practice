@@ -17,7 +17,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 4rem;
-    box-shadow: 0 2px 8px #547f3a;
+    box-shadow: 0 2px 10px #547f3a;
 }
 
 .header > .logo-container {
@@ -43,6 +43,21 @@ body {
     margin: 1rem auto;
 }
 
+.filter {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.filter > .filter-btn {
+    background: #547f3a;
+    color: #ECF8E5;
+    padding: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 1rem;
+}
+
 .res-container {
     display: flex;
     flex-wrap: wrap;
@@ -52,6 +67,7 @@ body {
 
 .res-card {
     display: flex;
+    background:#ECF8E5;
     flex-direction: column;
     width: 250px;
     height: 400px;
