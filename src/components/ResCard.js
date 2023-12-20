@@ -11,9 +11,9 @@ const ResCard = (props) => {
             <img src={IMG_URL + cloudinaryImageId}></img>
             <h2>{name}</h2>
             <div className="res-details">
-                <h3>{cuisines.join(", ")}</h3>
-                <h3>{avgRating} ⭐</h3>
-                <h3>{costForTwo}</h3>
+                <h4>{cuisines.join(", ")}</h4>
+                <h4>{avgRating} ⭐</h4>
+                <h4>{costForTwo}</h4>
             </div>
         </div>
     )

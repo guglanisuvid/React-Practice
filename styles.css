@@ -61,19 +61,35 @@ body {
     margin: 1rem auto;
 }
 
-.filter {
+.search-filter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     text-align: center;
     margin: 2rem auto;
 }
 
-.filter > .filter-btn {
+.search-btn-container > input {
+    background: #ECF8E5;
+    color: #547f3a;
+    padding: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin: auto 10px;
+}
+
+.filter-btn, .search-btn-container > button {
     background: #547f3a;
     color: #ECF8E5;
     padding: 1rem;
     font-weight: 700;
     letter-spacing: 2px;
     border: none;
-    border-radius: 1rem;
+    border-radius: 10px;
+    margin: auto 10px;
 }
 
 .res-container {
