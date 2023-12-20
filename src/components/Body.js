@@ -13,7 +13,7 @@ const Body = () => {
 
     const [filterText, setFilterText] = useState("See Top Rated Restaurants");
 
-    function topRatedRestaurants() {
+    const topRatedRestaurants = () => {
         const filteredList = listOfRestaurants.filter(
             res => res.info.avgRating > 4.2
         );
@@ -21,7 +21,7 @@ const Body = () => {
         setFilterText("See All Restaurants");
     }
 
-    function displayAllRestaurants() {
+    const displayAllRestaurants = () => {
         setFilteredList(listOfRestaurants);
         setFilterText("See Top Rated Restaurants");
     }
