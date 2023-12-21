@@ -57,3 +57,7 @@ import comp_name from "comp_path";
 - useState() - used to generate state variables in react
   we need to import (named import) useState from react.
 - useEffect()
+
+# Failed to Fetch Error
+
+- Please use a CORS Proxy Extension to fix the "Failed to Fetch" Error
