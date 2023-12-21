@@ -27,7 +27,7 @@ body {
     height: 100%;
 }
 
-.header > .logo-container > img {
+.header > .logo-container > a > img {
     height: 100%;
 }
 

@@ -61,3 +61,8 @@ import comp_name from "comp_path";
 # Failed to Fetch Error
 
 - Please use a CORS Proxy Extension to fix the "Failed to Fetch" Error
+
+# Routing in Web Apps
+
+- Client Side Routing - a type of routing that allows users to navigate a website or application without reloading the entire page.
+- Server Side Routing - requesting a new page from the server and providing it to the user every time a link is clicked.
