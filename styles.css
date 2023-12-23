@@ -10,6 +10,11 @@ body {
     color: #547f3a;
 }
 
+a {
+    color: #547f3a;
+    text-decoration: none;
+}
+
 /* Header Styling */
 
 .header {
@@ -138,4 +143,40 @@ body {
 .shimmer-cards > .shimmer-card {
     background: #f0f0f0;
     border: 2px solid #0f0f0f;
+}
+
+/* About Styling */
+
+.about-container {
+    margin: 1rem;
+}
+
+.about-container > h1 {
+    text-align: center;
+}
+
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+}
+
+.profile-container > .profile-img {
+    height: 240px;
+    border-radius: 50%;
+    clip-path: fill-box;
+}
+
+.profile-container > .profile-img > img {
+    height: 100%;
+}
+
+.profile-container > .profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.profile-container > .profile-info > h2 > a {
+    text-decoration: underline;
 }
