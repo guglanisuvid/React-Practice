@@ -50,31 +50,29 @@ const Body = () => {
     }
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
-        <div className="body">
-            <div className="search-filter">
-                <div className="search-btn-container">
-                    <input type="text" placeholder="Restaurant Name" value={searchText} onChange={(e) => {
+        <div className="border-solid mt-8 px-6">
+            <div className="flex justify-evenly">
+                <div>
+                    <input className="px-4 py-2 rounded-lg bg-green-100 placeholder:text-lime-800 text-lime-800 outline-none shadow-lg" type="text" placeholder="Restaurant Name" value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
                     }}
                     />
-                    <button onClick={() => {
+                    <button className="px-4 py-2 mx-2 rounded-lg bg-green-600 text-lime-50 shadow-lg" onClick={() => {
                         const filteredList = listOfRestaurants.filter((res) =>
                             res.info.name.toLowerCase().includes(searchText.toLowerCase()));
 
                         setFilteredList(filteredList);
                     }}>Search</button>
                 </div>
-                <div className="filter-btn-container">
-                    <button
-                        className="filter-btn"
-                        onClick={() => {
-                            filterText === "See Top Rated Restaurants" ? topRatedRestaurants() : displayAllRestaurants();
-                        }}>
-                        {filterText}
-                    </button>
-                </div>
+                <button
+                    className="px-4 py-2 rounded-lg bg-green-600 text-lime-50  shadow-lg"
+                    onClick={() => {
+                        filterText === "See Top Rated Restaurants" ? topRatedRestaurants() : displayAllRestaurants();
+                    }}>
+                    {filterText}
+                </button>
             </div>
-            <div className="res-container">
+            <div className="grid grid-cols-5 justify-items-center gap-8 my-8">
                 {
                     filteredList.map((restaurant) => (
                         <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><ResCard resData={restaurant} /></Link>

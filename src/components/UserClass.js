@@ -27,14 +27,12 @@ class UserClass extends React.Component {
         const { avatar_url, name, bio, html_url, login } = this.state.profileInfo;
 
         return (
-            <div className="profile-container">
-                <div className="profile-img">
-                    <img src={avatar_url} />
-                </div>
-                <div className="profile-info">
-                    <h2>Name : {name}</h2>
-                    <h2>Bio : {bio}</h2>
-                    <h2>Profile : <Link to={html_url} target="_blank">@{login}</Link></h2>
+            <div className="flex gap-8 px-6 mt-8 text-lime-800">
+                <img className="rounded-full" src={avatar_url} />
+                <div className="flex flex-col justify-evenly text-xl">
+                    <h2><span className="font-semibold">Name :</span> {name}</h2>
+                    <h2><span className="font-semibold">Bio :</span> {bio}</h2>
+                    <h2><span className="font-semibold">Profile :</span> <Link to={html_url} target="_blank">@{login}🔗</Link></h2>
                 </div>
             </div>
         )
