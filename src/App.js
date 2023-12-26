@@ -12,7 +12,7 @@ const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
     return (
-        <div className="app">
+        <div className="app scroll-smooth">
             <Header />
             <Outlet />
         </div>

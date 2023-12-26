@@ -1,9 +1,9 @@
-import ResCard from "./ResCard";
+import ResCard, { withPromotedLabel } from "./ResCard";
 import { useEffect, useState } from "react";
-import { RES_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RES_URL } from "../utils/constants";
 
 const Body = () => {
 
@@ -15,9 +15,26 @@ const Body = () => {
 
     const [filterText, setFilterText] = useState("See Top Rated Restaurants");
 
+    const PromotedResCard = withPromotedLabel(ResCard);
+
+    const onlineStatus = useOnlineStatus();
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const fetchData = async () => {
+        const data = await fetch(RES_URL);
+
+        const json = await data.json();
+
+        setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+
     const topRatedRestaurants = () => {
         const filteredList = listOfRestaurants.filter(
-            res => res.info.avgRating > 4.2
+            res => res.info.avgRating > 4.4
         );
         setFilteredList(filteredList);
         setFilterText("See All Restaurants");
@@ -27,19 +44,6 @@ const Body = () => {
         setFilteredList(listOfRestaurants);
         setFilterText("See Top Rated Restaurants");
     }
-
-    useEffect(() => {
-        fetchData();
-    }, [])
-
-    const fetchData = async () => {
-        const data = await fetch(RES_URL);
-        const json = await data.json();
-        setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
-
-    const onlineStatus = useOnlineStatus();
 
     if (onlineStatus === false) {
         return (
@@ -75,7 +79,15 @@ const Body = () => {
             <div className="grid grid-cols-5 justify-items-center gap-8 my-8">
                 {
                     filteredList.map((restaurant) => (
-                        <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><ResCard resData={restaurant} /></Link>
+                        <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>
+                            {
+                                (restaurant.info.avgRating > 4.2 && restaurant.info.avgRating < 4.5) ? (
+                                    <PromotedResCard resData={restaurant} />
+                                ) : (
+                                    <ResCard resData={restaurant} />
+                                )
+                            }
+                        </Link>
                     ))
                 }
             </div>
