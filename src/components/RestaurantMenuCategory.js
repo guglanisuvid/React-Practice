@@ -1,21 +1,16 @@
-import { useState } from "react";
 import RestaurantMenuItem from "./RestaurantMenuItem";
 
-const RestaurantMenuCategory = ({ data }) => {
+const RestaurantMenuCategory = ({ data, showItems, setShowIndex }) => {
 
-    const { title } = data?.card?.card;
-
-    const [showItems, setShowItems] = useState(null);
-
-    const showHideMenuItems = () => {
-        showItems ? setShowItems(false) : setShowItems(true);
-    }
+    const handleClick = () => {
+        setShowIndex();
+    };
 
     return (
         <div className="my-8 p-2 bg-[#ECF8E5] rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold flex justify-between py-2 cursor-pointer" onClick={() => showHideMenuItems()}>
+            <h3 className="text-lg font-semibold flex justify-between py-2 cursor-pointer" onClick={() => handleClick()}>
                 <span>
-                    {title} ({data.card.card.itemCards.length})
+                    {data?.title} ({data?.itemCards?.length})
                 </span>
                 <span>
                     ▽
@@ -23,8 +18,11 @@ const RestaurantMenuCategory = ({ data }) => {
             </h3>
             <div>
                 {
-                    showItems && (data?.card?.card?.itemCards?.map((items) => (
-                        <RestaurantMenuItem key={items.card.info.id} itemData={items} />
+                    showItems && (data?.itemCards?.map((items) => (
+                        <RestaurantMenuItem
+                            key={items?.card?.info?.id}
+                            itemData={items}
+                        />
                     )))
                 }
             </div>
