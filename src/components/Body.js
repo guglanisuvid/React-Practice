@@ -57,16 +57,17 @@ const Body = () => {
         <div className="border-solid mt-8 px-6">
             <div className="flex justify-evenly">
                 <div>
-                    <input className="px-4 py-2 rounded-lg bg-green-100 placeholder:text-lime-800 text-lime-800 outline-none shadow-lg" type="text" placeholder="Restaurant Name" value={searchText} onChange={(e) => {
-                        setSearchText(e.target.value);
-                    }}
+                    <input className="px-4 py-2 rounded-lg bg-green-100 placeholder:text-lime-800 text-lime-800 outline-none shadow-lg"
+                        type="text"
+                        placeholder="Search Restaurant"
+                        value={searchText}
+                        onChange={(e) => {
+                            setSearchText(e.target.value);
+                            const filteredList = listOfRestaurants.filter((res) =>
+                                res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                            setFilteredList(filteredList);
+                        }}
                     />
-                    <button className="px-4 py-2 mx-2 rounded-lg bg-green-600 text-lime-50 shadow-lg" onClick={() => {
-                        const filteredList = listOfRestaurants.filter((res) =>
-                            res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-
-                        setFilteredList(filteredList);
-                    }}>Search</button>
                 </div>
                 <button
                     className="px-4 py-2 rounded-lg bg-green-600 text-lime-50  shadow-lg"

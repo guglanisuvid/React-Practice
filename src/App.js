@@ -1,21 +1,27 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
+import UserContext from "./utils/userContext";
 
 const About = lazy(() => import("./components/About"));
 
 const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
+
+    const [userName, setUserName] = useState("Default User");
+
     return (
         <div className="app scroll-smooth">
-            <Header />
+            <UserContext.Provider value={{ userLoginId: userName, setUserName }}>
+                <Header />
+            </UserContext.Provider>
             <Outlet />
-        </div>
+        </div >
     )
 }
 
