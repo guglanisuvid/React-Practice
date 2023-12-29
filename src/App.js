@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -6,6 +6,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const About = lazy(() => import("./components/About"));
 
@@ -16,12 +18,14 @@ const AppLayout = () => {
     const [userName, setUserName] = useState("Default User");
 
     return (
-        <div className="app scroll-smooth">
+        <Provider store={appStore}>
             <UserContext.Provider value={{ userLoginId: userName, setUserName }}>
-                <Header />
+                <div className="app scroll-smooth">
+                    <Header />
+                    <Outlet />
+                </div >
             </UserContext.Provider>
-            <Outlet />
-        </div >
+        </Provider>
     )
 }
 

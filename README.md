@@ -66,3 +66,19 @@ import comp_name from "comp_path";
 
 - Client Side Routing - a type of routing that allows users to navigate a website or application without reloading the entire page.
 - Server Side Routing - requesting a new page from the server and providing it to the user every time a link is clicked.
+
+# Redux Toolkit
+
+- Install libraries (@reduxjs/toolkit and react-redux)
+- Build our store
+- Connect store to app
+- create a slice
+- modify data in store
+- - action (click) on the ui layer
+- - dispatch an action
+- - reducer function
+- - modify the data in the slice of the redux store
+- fetching / reading data from redux store
+- - slice (inside the redux store)
+- - selector (subscribing to the store)
+- - display / use the data

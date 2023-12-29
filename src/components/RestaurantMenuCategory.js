@@ -18,12 +18,13 @@ const RestaurantMenuCategory = ({ data, showItems, setShowIndex }) => {
             </h3>
             <div>
                 {
-                    showItems && (data?.itemCards?.map((items) => (
-                        <RestaurantMenuItem
-                            key={items?.card?.info?.id}
-                            itemData={items}
-                        />
-                    )))
+                    showItems
+                    &&
+                    <RestaurantMenuItem
+                        key={data?.itamCards?.card?.info?.id}
+                        itemData={data}
+                    />
+
                 }
             </div>
         </div>
