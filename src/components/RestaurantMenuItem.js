@@ -5,13 +5,15 @@ const RestaurantMenuItem = ({ itemData }) => {
 
     const dispatch = useDispatch();
 
-    const handleAddItem = (name) => {
-        dispatch(addItem(name));
+    const handleAddItem = (itemInfo) => {
+        dispatch(addItem(itemInfo));
     }
 
     const handleRemoveItem = () => {
         dispatch(removeLastItem());
     }
+
+    console.log(itemData);
 
     return (
         itemData?.itemCards.map((item) => (

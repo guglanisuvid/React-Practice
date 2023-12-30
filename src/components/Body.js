@@ -70,7 +70,7 @@ const Body = () => {
                     />
                 </div>
                 <button
-                    className="px-4 py-2 rounded-lg bg-green-600 text-lime-50  shadow-lg"
+                    className="px-4 py-2 rounded-lg bg-green-600 text-lime-50 shadow-lg"
                     onClick={() => {
                         filterText === "See Top Rated Restaurants" ? topRatedRestaurants() : displayAllRestaurants();
                     }}>

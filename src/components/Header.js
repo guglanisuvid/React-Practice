@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -14,7 +14,6 @@ const Header = () => {
     const onlineStatus = useOnlineStatus();
 
     const cart = useSelector((store) => store.cart.items);
-    console.log(cart);
 
     return (
         <div className="header flex justify-between items-center gap-4 px-6 bg-[#ECF8E5] shadow-md text-lime-800">
@@ -29,13 +28,13 @@ const Header = () => {
                     onChange={(e) => setUserName(e.target.value)}
                 />
             </div>
-            <div className="nav-items w-1/2">
+            <div className="nav-items w-[64%]">
                 <ul className="w-full flex justify-between">
                     <li>Status : {onlineStatus ? "Online✅" : "Offline❌"}</li>
                     <li><Link to={"/"}>Home</Link></li>
                     <li><Link to={"/about"}>About</Link></li>
                     <li><Link to={"/contact"}>Contact</Link></li>
-                    <li>Cart({cart.length})</li>
+                    <li><Link to={"/cart"}>Cart({cart.length})</Link></li>
                     <li>
                         <button
                             className="login-logout-btn"
