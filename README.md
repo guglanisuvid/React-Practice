@@ -82,3 +82,22 @@ import comp_name from "comp_path";
 - - slice (inside the redux store)
 - - selector (subscribing to the store)
 - - display / use the data
+
+# Types of Testing
+
+- Unit Testing - testing react components in isolation.
+- Integration Testing - testing the integration of the component.
+- End to End Testing (E to E Testing) - testing a react application as soon as the user lands on the website till the user leaves the website.
+
+# Setting Up Testing in Our App
+
+- install react testing library
+- install jest
+- install babel dependencies
+- configure 'babel.config.js'
+- configure parcel config file to disable default babel transpilation ('.parcelrc')
+- configuring jest (npx jest --init)
+- install jsdom library (npm install --save-dev jest-environment-jsdom)
+- install @babel/preset-react - to make jsx work in test cases
+- include @babel/preset-react inside babel.config.js (["@babel/preset-react", { runtime: "automatic" }])
+- install @testing-library/jest-dom
