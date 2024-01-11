@@ -13,11 +13,11 @@ const RestaurantMenuItem = ({ itemData }) => {
         dispatch(removeLastItem());
     }
 
-    console.log(itemData);
-
     return (
         itemData?.itemCards.map((item) => (
-            <div className="pt-4">
+            <div
+                data-testid="menuItem"
+                className="pt-4">
                 <div className="flex justify-between items-center gap-10">
                     <div className="w-[88%]">
                         <h4>{item?.card?.info?.name}</h4>

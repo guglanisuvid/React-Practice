@@ -68,6 +68,7 @@ const Body = () => {
             <div className="flex justify-evenly">
                 <div>
                     <input className="px-4 py-2 rounded-lg bg-green-100 placeholder:text-lime-800 text-lime-800 outline-none shadow-lg"
+                        data-testid="searchBox"
                         type="text"
                         placeholder="Search Restaurant"
                         value={searchText}
